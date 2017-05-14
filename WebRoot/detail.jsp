@@ -28,7 +28,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-   <p> 服装名称：<c:out value="${clothes.clothestype}"></c:out></p>
+   <p>服装名称：<c:out value="${clothes.clothestype}"></c:out></p>
    <p>单价：<c:out value="${clothes.unitprice}"></c:out></p>
    <p>衣服图片展示：</p>
    
