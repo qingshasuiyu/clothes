@@ -56,8 +56,8 @@ public class ClothesDao {
     public ArrayList<Clothes> QueryClothesInfo(String clothestype){
     	Session s=factory.getCurrentSession();
     	String hql="From Clothes clothes where 1=1";
-    	if(!clothestype.equals("")) 
-    		hql = hql + " and clothes.clothestype like '%"+clothestype+"%'";
+    	/*if(!clothestype.equals("")) 
+    		hql = hql + " and clothes.clothestype like '%"+clothestype+"%'";*/
     	Query q=s.createQuery(hql);
     	List clothesList = q.list();
     	return (ArrayList<Clothes>) clothesList;

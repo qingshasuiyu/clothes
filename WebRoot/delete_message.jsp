@@ -20,11 +20,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="Refresh" content="2;url=clothes/clothes_showClothes">
 	<link rel="stylesheet" type="text/css" href="index.css">
 	<link rel="stylesheet" type="text/css" href="bootstrap.css">
+	<link rel="stylesheet" href="<%=basePath%>css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="<%=basePath%>css/font-awesome.css">
+	<link rel="stylesheet" type="text/css" href="<%=basePath%>css/main.css">
+	<link rel="shortcut icon" href="<%=basePath%>img/logo.png">
+	
 	
 
   </head>
   
-  <body style="background:url('img/bg.jpg') no-repeat;">
+  <body>
     成功删除了一种服装<br>
   </body>
 </html>

@@ -17,12 +17,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="expires" content="0">    
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
-	<link rel="stylesheet" type="text/css" href="index.css">
-	<link rel="stylesheet" type="text/css" href="bootstrap.css">
+	<link rel="stylesheet" href="<%=basePath%>css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="<%=basePath%>css/font-awesome.css">
+	<link rel="stylesheet" type="text/css" href="<%=basePath%>css/main.css">
+	<link rel="shortcut icon" href="<%=basePath%>img/logo.png">
+	
 
   </head>
   
-  <body style="background:url('img/bg.jpg') no-repeat;">
+  <body>
     <s:form action="master/master_reg" method="post">
       <s:textfield name="master.name" label="用户名"></s:textfield>
       <s:password name="master.password" label="密码"></s:password>

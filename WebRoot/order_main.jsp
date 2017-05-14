@@ -18,11 +18,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
 	
-	<link rel="stylesheet" type="text/css" href="index.css">
-	<link rel="stylesheet" type="text/css" href="bootstrap.css">
-  </head>
+	<link rel="stylesheet" href="<%=basePath%>css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="<%=basePath%>css/font-awesome.css">
+	<link rel="stylesheet" type="text/css" href="<%=basePath%>css/main.css">
+	<link rel="shortcut icon" href="<%=basePath%>img/logo.png">
+	  </head>
   
-  <body style="background:url('img/bg.jpg') no-repeat;">
+  <body>
     <c:out value="${customer.name}"></c:out>, 欢迎您!
 	    <s:form action="order/order_queryOrders" method="post">
 	      

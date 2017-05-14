@@ -16,7 +16,6 @@ public class Customer implements java.io.Serializable {
 	private String address;
 	private String password;
 	private Set orders = new HashSet(0);
-	private Set orders_1 = new HashSet(0);
 
 	// Constructors
 
@@ -32,13 +31,11 @@ public class Customer implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Customer(String name, String address, String password, Set orders,
-			Set orders_1) {
+	public Customer(String name, String address, String password, Set orders) {
 		this.name = name;
 		this.address = address;
 		this.password = password;
 		this.orders = orders;
-		this.orders_1 = orders_1;
 	}
 
 	// Property accessors
@@ -81,14 +78,6 @@ public class Customer implements java.io.Serializable {
 
 	public void setOrders(Set orders) {
 		this.orders = orders;
-	}
-
-	public Set getOrders_1() {
-		return this.orders_1;
-	}
-
-	public void setOrders_1(Set orders_1) {
-		this.orders_1 = orders_1;
 	}
 
 }

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="gb18030"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- 
@@ -15,16 +15,13 @@
         </property>
         <property name="unitprice" type="java.lang.Double">
             <column name="unitprice" precision="22" scale="0">
-                <comment>Âçï‰ª∑</comment>
+                <comment>µ•º€</comment>
             </column>
         </property>
+        <property name="filepath" type="java.lang.String">
+            <column name="filepath" length="40" />
+        </property>
         <set name="orders" inverse="true">
-            <key>
-                <column name="clothes" not-null="true" />
-            </key>
-            <one-to-many class="com.clothes.model.Order" />
-        </set>
-        <set name="orders_1" inverse="true">
             <key>
                 <column name="clothes" not-null="true" />
             </key>

@@ -20,10 +20,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="Refresh" content="2;url=clothes/clothes_showClothes">
 	<link rel="stylesheet" type="text/css" href="index.css">
 	<link rel="stylesheet" type="text/css" href="bootstrap.css">
+	<link rel="stylesheet" href="<%=basePath%>css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="<%=basePath%>css/font-awesome.css">
+	<link rel="stylesheet" type="text/css" href="<%=basePath%>css/main.css">
+	<link rel="shortcut icon" href="<%=basePath%>img/logo.png">
+	
   </head>
   
-  <body style="background:url('img/bg.jpg') no-repeat;">
+  <body>
    <p>服装名称：<c:out value="${clothes.clothestype}"></c:out></p>
    <p>单价：<c:out value="${clothes.unitprice}"></c:out></p>
+   <p>衣服图片展示：</p>
+   
   </body>
 </html>

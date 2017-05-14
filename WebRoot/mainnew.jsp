@@ -6,83 +6,157 @@ String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!DOCTYPE html>
 <html>
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'main.jsp' starting page</title>
+    <title>店铺首页</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">    
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
-	<link rel="stylesheet" type="text/css" href="index.css">
-	<link rel="stylesheet" type="text/css" href="bootstrap.css">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+	
+	<link rel="stylesheet" href="<%=basePath%>css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="<%=basePath%>css/font-awesome.css">
+	<link rel="stylesheet" type="text/css" href="<%=basePath%>css/main.css">
+	<link rel="shortcut icon" href="<%=basePath%>img/logo.png">
+	
+	<style>
+	    li{
+	       float:left;
+	       list-style:none;
+	       padding:8px 50px;
+	       margin-right:200px;
+	    }
+	    #url_info{
+	       display:block;
+	       position:fixed;
+	       right:0;
+	       bottom:50%;
+	       width:75px;
+	       height:200px;
+	       padding:5px;
+	       -moz-borde-radius:4px;
+	       -webkit-border-radius:4px;
+	       border=radius:4px;
+	       color:black;
+	       font-size:xx-large;
+	    }
+	    #time{
+	       dispaly:block;
+	       position:fixed;
+	       left:0;
+	       top:90%;
+	    }
+	   
+	</style>
+	
   </head>
   
-  <body style="background:url('img/bg.jpg') no-repeat;">
+  <body>
+  <div id=url_info>
+            <a href="hhh.jsp">屠点龙击宝就刀送</a>
+  </div>
+  <header>
+      <div class="logo">CLOTHES</div>
+      <div class="account">
       <c:choose>
           <c:when test="${customer.name ==null and master.name==null}">
 	         <a href="masterlogin.jsp">店主登录</a>
 	         <a href="masterreg.jsp">我要开店</a> 
 	         <a href="reg.jsp">顾客注册</a>
 	         <a href="login.jsp">顾客登录</a>
-	         <s:form action="clothes/clothes_queryClothes" method="post">
-      <label>服装名称：</label><input type="text" name="keywords" placeholder="请输入关键词"><s:submit value="查询"></s:submit>
-      <table>
-        <c:forEach var="clothes" items="${clothesList}" varStatus="status">
-         <tr>
-          <td><c:out value="${status.index+1}"></c:out></td>
-          <td><a href="clothes/clothes_showDetail?clothes.clothesid=${clothes.clothesid}"><c:out value="${clothes.clothestype}"></c:out></a></td>
-          <td><c:out value="${clothes.unitprice}"></c:out></td>
-          <td><a href="order/order_addOrder?clothes.clothesid=${clothes.clothesid}&customer.name=${customer.name}">下单</a>
-          </td></tr></c:forEach></table></s:form>
-	       </c:when>
-	       <c:otherwise>
+	      </c:when>
+	      <c:otherwise>
 	         <c:choose>
 	             <c:when test="${master.name !=null}">
 	              <c:out value="${master.name}"></c:out>,欢迎您！
-	               <p> 添加服装</p>
-	         <s:form action="clothes/clothes_addClothes" method="post">
-             <s:textfield name="clothes.clothestype" label="名称" value="请输入想要添加的服装"></s:textfield><br><br>
-             <s:textfield name="clothes.unitprice" label="单价"></s:textfield>
-             <s:submit value="提交"></s:submit>
-             </s:form>
-             
-             <s:form action="clothes/clothes_queryClothes" method="post">
-      <label>服装名称：</label><input type="text" name="keywords" placeholder="请输入关键词"><s:submit value="查询"></s:submit>
-      <table>
-        <c:forEach var="clothes" items="${clothesList}" varStatus="status">
-         <tr>
-          <td><c:out value="${status.index+1}"></c:out></td>
-          <td><a href="clothes/clothes_showDetail?clothes.clothesid=${clothes.clothesid}"><c:out value="${clothes.clothestype}"></c:out></a></td>
-          <td><c:out value="${clothes.unitprice}"></c:out></td>
-          <td><a href="clothes/clothes_showEdit?clothes.clothesid=${clothes.clothesid}">编辑</a></td>
-          <td><a href="clothes/clothes_deleteClothes?clothes.clothesid=${clothes.clothesid}">删除</a></td>
-          <td>
-          </td></tr></c:forEach></table>
-          </s:form>
 	             </c:when>
 	             <c:otherwise>
 	               <c:out value="${customer.name}"></c:out>, 欢迎您!
 	               <a href="order_main.jsp">我的订单</a>
-	               
-	               <s:form action="clothes/clothes_queryClothes" method="post">
-      <label>服装名称：</label><input type="text" name="keywords" placeholder="请输入关键词"><s:submit value="查询"></s:submit>
-      <table>
-        <c:forEach var="clothes" items="${clothesList}" varStatus="status">
-         <tr>
-          <td><c:out value="${status.index+1}"></c:out></td>
-          <td><a href="clothes/clothes_showDetail?clothes.clothesid=${clothes.clothesid}"><c:out value="${clothes.clothestype}"></c:out></a></td>
-          <td><c:out value="${clothes.unitprice}"></c:out></td>
-          <td><a href="order/order_addOrder?clothes.clothesid=${clothes.clothesid}&customer.name=${customer.name}">下单</a>
-          </td></tr></c:forEach></table></s:form>
+	               <a href="masterlogin.jsp">店主登录</a>
+	               <a href="masterreg.jsp">我要开店</a> 
 	             </c:otherwise>
-	         </c:choose>
-	     </c:otherwise>
+	          </c:choose>
+	       </c:otherwise>
 	  </c:choose>
-	   
+      </div>
+  </header>
+  <main>
+     <s:form action="clothes/clothes_queryClothes" method="post">
+     <div class="form-inline search-box">
+              <div class="form-group pull-right mr200">
+                <input class="search-field form-control input-sm" title="关键词" name="keyWords" placeholder="输入关键词...">
+                <button class="btn btn-info btn-sm" type="submit">搜  索</button>
+              </div> 
+     </div>         
+      <c:choose>
+	        <c:when test="${master.name !=null}">
+	             
+	             		        
+		            <h2><div class="add"><a href="add.jsp">上架服装</a></div></h2>	        
+	             
+	             
+	             <s:iterator value="clothesList" status="status">
+	          <li>
+	             <img src="<%=basePath%><s:property value='filepath'/>" width="150px" height="150px">
+	             <p>
+	                <a href="clothes/clothes_showDetail?clothes.clothesid=<s:property value='clothesid'/>">
+	                  <s:property value="clothestype"/>
+	                </a>
+	                <span class="price"> &yen;<s:property value="unitprice"/></span>
+	                <a href="clothes/clothes_showEdit?clothes.clothesid=<s:property 
+	                  value='clothesid'/>">
+	                  <i class="fa fa-pencil"></i> 
+	                </a>
+	                &nbsp;&nbsp;<a href="clothes/clothes_deleteClothes?clothes.clothesid=<s:property 
+	                  value='clothesid'/>">
+	                  <i class="fa fa-trash"></i> 
+	                </a>
+	             </p>
+	          </li>
+	        </s:iterator> 
+            
+	      </c:when>       
+	      
+	      <c:otherwise>
+	      <s:iterator value="clothesList" status="status">
+	          
+	          <li>
+	          
+	             <img src="<%=basePath%><s:property value='filepath'/>" width="150px" height="150px">
+	             <p>
+	                <a href="clothes/clothes_showDetail?clothes.clothesid=<s:property value='clothesid'/>">
+	                  <s:property value="clothestype"/>
+	                </a>
+	                <span class="price"> &yen;<s:property value="unitprice"/></span>
+	                <a href="order/order_addOrder?clothes.clothesid=<s:property 
+	                  value='clothesid'/>&customer.name=<s:property value='#session.customer.name'/>" class="add-order">
+	                                               下单
+	                </a>
+	             </p>
+	          </li>
+	          
+	        </s:iterator>
+	      </c:otherwise>  
+	      </c:choose>   
+	    
+	    </s:form>  
+	   <div id="time">
+    <script>
+        document.getElementById('time').innerHTML = new Date().toLocaleString()
+                + ' 星期' + '日一二三四五六'.charAt(new Date().getDay());
+        setInterval(
+                "document.getElementById('time').innerHTML=new Date().toLocaleString()+' 星期'+'日一二三四五六'.charAt(new Date().getDay());",
+                1000);
+    </script>
+</div>
+     </main>     
+     
   </body>
 </html>
