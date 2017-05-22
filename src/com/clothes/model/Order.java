@@ -9,8 +9,8 @@ public class Order implements java.io.Serializable {
 	// Fields
 
 	private Integer orderid;
-	private Customer customer;
 	private Clothes clothes;
+	private Customer customer;
 	private Integer clothesnum;
 	private Double total;
 
@@ -26,10 +26,10 @@ public class Order implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Order(Customer customer, Clothes clothes, Integer clothesnum,
+	public Order(Clothes clothes, Customer customer, Integer clothesnum,
 			Double total) {
-		this.customer = customer;
 		this.clothes = clothes;
+		this.customer = customer;
 		this.clothesnum = clothesnum;
 		this.total = total;
 	}
@@ -44,20 +44,20 @@ public class Order implements java.io.Serializable {
 		this.orderid = orderid;
 	}
 
-	public Customer getCustomer() {
-		return this.customer;
-	}
-
-	public void setCustomer(Customer customer) {
-		this.customer = customer;
-	}
-
 	public Clothes getClothes() {
 		return this.clothes;
 	}
 
 	public void setClothes(Clothes clothes) {
 		this.clothes = clothes;
+	}
+
+	public Customer getCustomer() {
+		return this.customer;
+	}
+
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
 	}
 
 	public Integer getClothesnum() {

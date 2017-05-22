@@ -59,7 +59,6 @@ public class CustomerDao {
 	    		 hql = hql + " and customer.name like '%" + name + "%'";
 			    	Query q = s.createQuery(hql);
 			    	customerList = q.list();
-		    	
 	    	}else{
 	    		
 	    		customerList =null;

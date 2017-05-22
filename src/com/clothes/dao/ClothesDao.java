@@ -54,12 +54,17 @@ public class ClothesDao {
 
     /*根据查询条件查询*/
     public ArrayList<Clothes> QueryClothesInfo(String clothestype){
+    	List clothesList;
     	Session s=factory.getCurrentSession();
     	String hql="From Clothes clothes where 1=1";
-    	/*if(!clothestype.equals("")) 
-    		hql = hql + " and clothes.clothestype like '%"+clothestype+"%'";*/
+    	System.out.println(hql);
+    	if(!clothestype.equals("")){
+    		hql = hql + " and clothes.clothestype like '%"+clothestype+"%'";
+    	}
     	Query q=s.createQuery(hql);
-    	List clothesList = q.list();
+    	clothesList = q.list();
+    	
+    	System.out.println(hql);
     	return (ArrayList<Clothes>) clothesList;
     }
     /*根据主键获取对象*/
@@ -81,6 +86,6 @@ public class ClothesDao {
         Object clothes = s.load(Clothes.class, clothesId);
         s.delete(clothes);
     }
+    
    
-	
 }

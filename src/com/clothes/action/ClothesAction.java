@@ -125,7 +125,9 @@ public class ClothesAction {
 	}
 	//查询衣服
 	public String queryClothes() throws Exception{
+		System.out.println(keywords);
 		clothesList=clothesDAO.QueryClothesInfo(keywords);
+		
 		return "show_view";
 	}
 	/*显示衣服信息*/

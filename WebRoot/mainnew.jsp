@@ -49,7 +49,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	    #time{
 	       dispaly:block;
 	       position:fixed;
-	       left:0;
+	       left:80%;
 	       top:90%;
 	    }
 	   
@@ -78,11 +78,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	             </c:when>
 	             <c:otherwise>
 	               <c:out value="${customer.name}"></c:out>, 欢迎您!
-	               <a href="order_main.jsp">我的订单</a>
+	               <a href="order/order_showOrder?customer.name=${customer.name}">我的订单</a>
 	               <a href="masterlogin.jsp">店主登录</a>
 	               <a href="masterreg.jsp">我要开店</a> 
 	             </c:otherwise>
 	          </c:choose>
+	             <a href="logout.jsp">退出登录</a>
 	       </c:otherwise>
 	  </c:choose>
       </div>
@@ -91,7 +92,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
      <s:form action="clothes/clothes_queryClothes" method="post">
      <div class="form-inline search-box">
               <div class="form-group pull-right mr200">
-                <input class="search-field form-control input-sm" title="关键词" name="keyWords" placeholder="输入关键词...">
+                <input class="search-field form-control input-sm" title="关键词" name="keywords" placeholder="输入关键词...">
                 <button class="btn btn-info btn-sm" type="submit">搜  索</button>
               </div> 
      </div>         
@@ -135,10 +136,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	                  <s:property value="clothestype"/>
 	                </a>
 	                <span class="price"> &yen;<s:property value="unitprice"/></span>
-	                <a href="order/order_addOrder?clothes.clothesid=<s:property 
-	                  value='clothesid'/>&customer.name=<s:property value='#session.customer.name'/>" class="add-order">
-	                                               下单
-	                </a>
+	             </p>
+	             <p>
+	                <form action="order/order_addOrder?clothes.clothesid=<s:property 
+	                  value='clothesid'/>&customer.name=<s:property 
+	                  value='#session.customer.name'/>&order.clothesnum=<s:property 
+	                  value='clothesnum'/>" method="post">
+                        <input type=button value="-" onClick="javascript:this.form.clothesnum.value--;">
+                        <input type="text" name="clothesnum" value="1" style="width:50px;text-align:center">
+                        <input type="button" value="+" onClick="javascript:this.form.clothesnum.value++;">
+                     <input type="submit" value="购买">
+                                         
+	                
+                   </form>
 	             </p>
 	          </li>
 	          

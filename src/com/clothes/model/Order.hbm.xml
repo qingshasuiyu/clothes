@@ -10,11 +10,11 @@
             <column name="orderid" />
             <generator class="increment"></generator>
         </id>
-        <many-to-one name="customer" class="com.clothes.model.Customer" fetch="select">
-            <column name="customer" />
+        <many-to-one name="clothes" class="com.clothes.model.Clothes" fetch="select" lazy="false">
+            <column name="clothesid" not-null="true" />
         </many-to-one>
-        <many-to-one name="clothes" class="com.clothes.model.Clothes" fetch="select">
-            <column name="clothes" not-null="true" />
+        <many-to-one name="customer" class="com.clothes.model.Customer" fetch="select" lazy="false">
+            <column name="customer" />
         </many-to-one>
         <property name="clothesnum" type="java.lang.Integer">
             <column name="clothesnum" />

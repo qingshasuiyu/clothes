@@ -10,7 +10,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'detail.jsp' starting page</title>
+    <title>服装详情</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -30,7 +30,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body>
    <p>服装名称：<c:out value="${clothes.clothestype}"></c:out></p>
    <p>单价：<c:out value="${clothes.unitprice}"></c:out></p>
-   <p>衣服图片展示：</p>
+   <p>衣服图片展示：
+               <img src="<%=basePath%><s:property value='clothes.filepath'/>">
+   </p>
    
   </body>
 </html>

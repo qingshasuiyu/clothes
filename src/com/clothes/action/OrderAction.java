@@ -16,6 +16,7 @@ import com.clothes.model.Order;
 
 @Controller @Scope("prototype")
 public class OrderAction {
+	/*业务层对象*/
 	@Resource OrderDao orderDao;
     @Resource CustomerDao customerDao;
     @Resource ClothesDao clothesDao;
@@ -24,7 +25,15 @@ public class OrderAction {
     private List<Order> orderList;
     private Customer customer;
     private Clothes clothes;
-    public Order getOrder() {
+	private Integer clothesnum;
+    
+    public Integer getClothesnum() {
+		return clothesnum;
+	}
+	public void setClothesnum(Integer clothesnum) {
+		this.clothesnum = clothesnum;
+	}
+	public Order getOrder() {
 		return order;
 	}
 	public void setOrder(Order order) {
@@ -52,31 +61,33 @@ public class OrderAction {
     
 	/*添加订单*/
 	public String addOrder() throws Exception{
-
 		customer = customerDao.queryCustomerInfo(customer.getName()).get(0);
 		Order ord =new Order();
+		
 		ord.setCustomer(customer);
 		ord.setClothes(clothes);
-		ord.setClothesnum(1);
-		ord.setTotal(clothesDao.GetClothesById(clothes.getClothesid()).getUnitprice()*1);
+		ord.setClothesnum(clothesnum);
+		
+		System.out.print("服装数目"+clothesnum);
+		ord.setTotal(clothesDao.GetClothesById(clothes.getClothesid()).getUnitprice()*clothesnum);
 		orderDao.AddOrder(ord);
 		return "order_message";
 		
 	}
 	
-	/**/
+	/*显示所有order*/
     public String showOrder() {
     	
-        //
+        //将系统设定为用户名不重复，因此在系统中查询到第一个该名称用户即可
     	System.out.println(customer.getName());
         Customer cus= customerDao.queryCustomerInfo(customer.getName()).get(0);
-        //
+        //注意不需要clothes的查询条件时，下面语句的写法，直接将clothes的条件置为null
         orderList = orderDao.QueryOrderInfo(cus,null);
 
         return "show_view";
     }
 
-    /**/
+    /*显示某一Order的详细信息*/
     public String showDetail() {
     	System.out.print(order.getOrderid());
     	order = orderDao.GetOrderById(order.getOrderid());
@@ -101,7 +112,7 @@ public class OrderAction {
         return "delete_message";
     }*/
     
-    /**/
+    /*查询Order*/
     public String queryOrders() throws Exception {
     	orderList = orderDao.QueryOrderInfo(customer,clothes);
         return "show_view";
