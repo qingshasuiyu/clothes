@@ -67,8 +67,6 @@ public class OrderAction {
 		ord.setCustomer(customer);
 		ord.setClothes(clothes);
 		ord.setClothesnum(clothesnum);
-		
-		System.out.print("服装数目"+clothesnum);
 		ord.setTotal(clothesDao.GetClothesById(clothes.getClothesid()).getUnitprice()*clothesnum);
 		orderDao.AddOrder(ord);
 		return "order_message";
