@@ -15,6 +15,8 @@ public class Customer implements java.io.Serializable {
 	private String name;
 	private String address;
 	private String password;
+	private Set carts = new HashSet(0);
+	private Set carts_1 = new HashSet(0);
 	private Set orders = new HashSet(0);
 
 	// Constructors
@@ -31,10 +33,13 @@ public class Customer implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Customer(String name, String address, String password, Set orders) {
+	public Customer(String name, String address, String password, Set carts,
+			Set carts_1, Set orders) {
 		this.name = name;
 		this.address = address;
 		this.password = password;
+		this.carts = carts;
+		this.carts_1 = carts_1;
 		this.orders = orders;
 	}
 
@@ -70,6 +75,22 @@ public class Customer implements java.io.Serializable {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public Set getCarts() {
+		return this.carts;
+	}
+
+	public void setCarts(Set carts) {
+		this.carts = carts;
+	}
+
+	public Set getCarts_1() {
+		return this.carts_1;
+	}
+
+	public void setCarts_1(Set carts_1) {
+		this.carts_1 = carts_1;
 	}
 
 	public Set getOrders() {

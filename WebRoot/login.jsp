@@ -21,7 +21,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	
 	<link rel="stylesheet" href="<%=basePath%>css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="<%=basePath%>css/font-awesome.css">
-	<link rel="stylesheet" type="text/css" href="<%=basePath%>css/main.css">
+	<link rel="stylesheet" type="text/css" href="<%=basePath%>css/login.css">
 	
 	<link rel="shortcut icon" href="<%=basePath%>img/logo.png">
 	
@@ -30,25 +30,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   <body>
     
-    <main class="bg">
-    
-	    <s:form action="customer/customer_login" method="post" cssClass="login">
-	      <h3>顾客登录</h3>
-	      <div class="form-group">
-              <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                <input type="text" name="customer.name" class="form-control" placeholder="请输入用户名" required>
-              </div>
-              <s:fielderror fieldName="customer.name" cssClass="fielderror"/>
-               <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                <input type="password" name="customer.password" pattern="^[a-zA-Z]\w{5,15}$" class="form-control" placeholder="请输入密码" required>
- 
-              </div>
-              <s:fielderror fieldName="customer.password" cssClass="fielderror"/>
-          </div>
-	      <button type="submit" class="btn btn-success btn-login">登 录 </button>
-	    </s:form>
-    </main>
+    <div class="wrapper">
+     <div class="container">    
+	    <form action="customer/customer_login" method="post">
+	      <h1>顾客登录</h1>
+	          <input type="text" name="customer.name" placeholder="Username">
+              <input type="password" name="customer.password" placeholder="Password">
+	          <button type="submit" id="login-button">Login</button>
+	      </form>
+    </div>
+    </div>
   </body>
 </html>

@@ -7,22 +7,25 @@ import javax.annotation.Resource;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
-import com.clothes.dao.CustomerDao;
+import com.clothes.dao.CartDao;
 import com.clothes.dao.ClothesDao;
+import com.clothes.dao.CustomerDao;
 import com.clothes.dao.OrderDao;
-import com.clothes.model.Customer;
+
+import com.clothes.model.Cart;
 import com.clothes.model.Clothes;
+import com.clothes.model.Customer;
 import com.clothes.model.Order;
 
 @Controller @Scope("prototype")
-public class OrderAction {
+public class CartAction {
 	/*业务层对象*/
-	@Resource OrderDao orderDao;
+	@Resource CartDao cartDao;
     @Resource CustomerDao customerDao;
     @Resource ClothesDao clothesDao;
     
-    private Order order;
-    private List<Order> orderList;
+    private Cart cart;
+    private List<Cart> cartList;
     private Customer customer;
     private Clothes clothes;
 	private Integer clothesnum;
@@ -33,17 +36,17 @@ public class OrderAction {
 	public void setClothesnum(Integer clothesnum) {
 		this.clothesnum = clothesnum;
 	}
-	public Order getOrder() {
-		return order;
+	public Cart getCart() {
+		return cart;
 	}
-	public void setOrder(Order order) {
-		this.order = order;
+	public void setCart(Cart cart) {
+		this.cart = cart;
 	}
-	public List<Order> getOrderList() {
-		return orderList;
+	public List<Cart> getCartList() {
+		return cartList;
 	}
-	public void setOrderList(List<Order> orderList) {
-		this.orderList = orderList;
+	public void setCartList(List<Cart> cartList) {
+		this.cartList = cartList;
 	}
 	public Customer getCustomer() {
 		return customer;
@@ -59,44 +62,36 @@ public class OrderAction {
 	}
 	
     
-	/*添加订单*/
-	public String addOrder() throws Exception{
+	/*向购物车中添加服装*/
+	public String addCart() throws Exception{
 		customer = customerDao.queryCustomerInfo(customer.getName()).get(0);
-		Order ord =new Order();
-		ord.setCustomer(customer);
-		ord.setClothes(clothes);
-		ord.setClothesnum(clothesnum);
-		System.out.println("tantui:"+clothesnum);
-		System.out.println("tantui:"+clothesDao.GetClothesById(clothes.getClothesid()).getUnitprice());
-		//ord.setTotal(clothesDao.GetClothesById(clothes.getClothesid()).getUnitprice());
-		ord.setTotal(clothesDao.GetClothesById(clothes.getClothesid()).getUnitprice()*clothesnum);
-		System.out.println(clothes);
-		orderDao.AddOrder(ord);
-		return "order_message";
+		Cart cart =new Cart();
+		clothesnum=1;
+		cart.setCustomer(customer);
+		cart.setClothes(clothes);
+		cart.setClothesnum(clothesnum);
+		cart.setTotal(clothesDao.GetClothesById(clothes.getClothesid()).getUnitprice()*clothesnum);
+		cartDao.AddCart(cart);
+		return "cart_message";
 		
 	}
 	
-	/*显示所有order*/
-    public String showOrder() {
+	/*显示购物车中所有商品*/
+    public String showCart() {
     	
         //将系统设定为用户名不重复，因此在系统中查询到第一个该名称用户即可
     	System.out.println(customer.getName());
         Customer cus= customerDao.queryCustomerInfo(customer.getName()).get(0);
         //注意不需要clothes的查询条件时，下面语句的写法，直接将clothes的条件置为null
-        orderList = orderDao.QueryOrderInfo(cus,null);
+        cartList = cartDao.QueryCartInfo(cus,null);
 
         return "show_view";
     }
-    
-    /*显示收到的order*/
-    public String showAllOrder() {
-    	orderList = orderDao.QueryOrderInfo(null,null);
-    	return "all_view";
-    }
-    /*显示某一Order的详细信息*/
+
+    /*显示某一cart的详细信息*/
     public String showDetail() {
-    	System.out.print(order.getOrderid());
-    	order = orderDao.GetOrderById(order.getOrderid());
+    	System.out.print(cart.getCartid());
+    	cart = cartDao.GetCartById(cart.getCartid());
         return "detail_view";
     }
     
@@ -112,17 +107,16 @@ public class OrderAction {
         return "edit_message";
     }*/
     
-    /*删除Order*/
-    /*public String deleteOrder() throws Exception {
-    	orderDao.DeleteOrder(food.getFoodid());
+    /*删除购物车中的某件商品*/
+    public String deleteCart() throws Exception {
+    	cartDao.DeleteCart(cart.getCartid());
         return "delete_message";
-    }*/
+    }
     
-    /*查询Order*/
-    public String queryOrders() throws Exception {
-    	orderList = orderDao.QueryOrderInfo(customer,clothes);
+    /*查询购物车中的某件商品*/
+    public String queryCarts() throws Exception {
+    	cartList = cartDao.QueryCartInfo(customer,clothes);
         return "show_view";
     }
     
-
 }

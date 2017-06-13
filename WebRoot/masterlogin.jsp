@@ -19,22 +19,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="description" content="This is my page">
 	<link rel="stylesheet" href="<%=basePath%>css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="<%=basePath%>css/font-awesome.css">
-	<link rel="stylesheet" type="text/css" href="<%=basePath%>css/main.css">
+	<!-- link rel="stylesheet" type="text/css" href="<%=basePath%>css/main.css"-->
+	<link rel="stylesheet" type="text/css" href="<%=basePath%>css/login.css">
 	<link rel="shortcut icon" href="<%=basePath%>img/logo.png">
 	
 	
   </head>
   
   <body>
-  <main class="bg">
-   <s:form action="master/master_login" method="post">
-      <s:textfield name="master.name" label="用户名"></s:textfield>
-      <s:password name="master.password" label="密码"></s:password>
-      <s:submit value="登录"></s:submit>
-
-    </s:form>
-    
-     <br>
-     </main>
+    <div class="wrapper">
+     <div class="container">
+          <h1>店主登录</h1>
+           <form action="master/master_login" method="post">
+              <input type="text" name="master.name" placeholder="Username">
+              <input type="password" name="master.password" placeholder="Password">
+	          <button type="submit" id="login-button">Login</button>
+           </form>
+     </div>
+    </div>
   </body>
 </html>

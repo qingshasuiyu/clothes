@@ -16,7 +16,7 @@
 	       
 	        <interceptor name="LoginInterceptors" class="com.clothes.util.LoginInterceptors">
 	          <!-- excludeName 是例外的action，也就是下面这几个action不会被拦截-->
-	           <param name="excludeName">master_login,master_reg,customer_login,customer_reg,clothes_queryClothes</param>
+	           <param name="excludeName">master_login,master_reg,customer_login,customer_reg,clothes_queryClothes,clothes_showClothes,clothes_deleteClothes,clothes_showEdit,clothes_editClothes,clothes_addClothes,order_showAllOrder</param>
 	           <!-- customer可以作为参数传递，取自session.put("customer", db_customer);中的这个customer-->
 	           <param name="sessionName">customer</param>
 	        </interceptor>     
@@ -71,7 +71,15 @@
 	    <action name="order_*" class="orderAction" method="{1}">
 	       <result name="order_message">/order_message.jsp</result>
 	       <result name="show_view">/order_main.jsp</result>
+	       <result name="all_view">/order_all.jsp</result>
 	       <result name="detail_view">/order_detail.jsp</result>
+	    </action>
+	 </package>
+	 <package name="cart" namespace="/cart" extends="default">
+	    <action name="cart_*" class="cartAction" method="{1}">
+	       <result name="cart_message">/cart_message.jsp</result>
+	       <result name="show_view">/cart_main.jsp</result>
+	       <result name="delete_message">/cart_delete.jsp</result>
 	    </action>
 	 </package>
 </struts>

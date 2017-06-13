@@ -3,15 +3,7 @@ body{
 	font-size:16px;
 	width:100%;   
     height:900px;   
-    FILTER: progid:DXImageTransform.Microsoft.Gradient(gradientType=0,startColorStr='#fafafa',endColorStr='#15A216'); /*IE 6 7 8*/
-    background:-moz-linear-gradient(top,#fafafa,#15A216);/*火狐*/
-    
-/*谷歌*/
-    background:-webkit-gradient(linear, 0% 0%, 0% 100%,from(#fafafa), to(#15A216));
-    background-image: -webkit-gradient(linear,left bottom,left top,color-start(0, #fafafa),color-stop(1, #15A216));  
-    filter:  progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#fafafa', endColorstr='#15A216'); 
-    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#fafafa', endColorstr='#15A216')"; 
-  
+    background: -webkit-linear-gradient(top, #FFFFF0 0%, #FFEC8B 100%);
 }
 .mr200{
 	margin-right:200px;
@@ -27,13 +19,14 @@ a:hover {
 }
 header{
 
-    background:#33CCFF;
+    background:#FFFFF0;
 	height:60px;
+	border-bottom-style:double;
 }
 header .account{
 	padding-right:200px;
 	text-align:right;
-	color:white;
+	color:black;
 	line-height:70px;
 	
 }
@@ -41,13 +34,13 @@ header .account>a{
 	float:right;
 	padding-right:20px;
 	line-height: 40px;
-	color:white;
+	color:black;
 	line-height:70px;
 	
 }
 header .account>a:hover{
 	
-	color:#eee;
+	color:#b7b7b7;
 
 	
 }
@@ -55,7 +48,7 @@ header .logo{
     float:left;
 	line-height:60px;
 	font-size:28px;
-	color:white;
+	color:black;
 }
 
 main{
@@ -230,89 +223,6 @@ main ul li p a.add-order:hover{
 	width:280px;
 }
 
-
-.bg .masterlogin{
-	
-	margin:0 auto;
-	width:400px;
-	padding:0 30px 30px 30px;
-	background-color: #fff;
-    background-image: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#eee));
-    background-image: -webkit-linear-gradient(top, #fff, #eee);
-    background-image: -moz-linear-gradient(top, #fff, #eee);
-    background-image: -ms-linear-gradient(top, #fff, #eee);
-    background-image: -o-linear-gradient(top, #fff, #eee);
-    background-image: linear-gradient(top, #fff, #eee);  
-    -moz-border-radius: 8px;
-    -webkit-border-radius: 8px;
-    border-radius: 8px;  
-    -webkit-box-shadow:
-          0 0 2px rgba(0, 0, 0, 0.2),
-          0 1px 1px rgba(0, 0, 0, .2),
-          0 3px 0 #fff,
-          0 4px 0 rgba(0, 0, 0, .2),
-          0 6px 0 #fff,  
-          0 7px 0 rgba(0, 0, 0, .2);
-    -moz-box-shadow:
-          0 0 2px rgba(0, 0, 0, 0.2),  
-          1px 1px   0 rgba(0,   0,   0,   .1),
-          3px 3px   0 rgba(255, 255, 255, 1),
-          4px 4px   0 rgba(0,   0,   0,   .1),
-          6px 6px   0 rgba(255, 255, 255, 1),  
-          7px 7px   0 rgba(0,   0,   0,   .1);
-    box-shadow:
-          0 0 2px rgba(0, 0, 0, 0.2),  
-          0 1px 1px rgba(0, 0, 0, .2),
-          0 3px 0 #fff,
-          0 4px 0 rgba(0, 0, 0, .2),
-          0 6px 0 #fff,  
-          0 7px 0 rgba(0, 0, 0, .2);
-}
-
-.bg .masterlogin h3{
-
-	color: #666;
-    padding:30px 0;
-    letter-spacing: 4px;
-    font: normal 18px/1 "microsoft YaHei";
-    position: relative;
-}
-.bg .masterlogin h3:after, .bg .login h3:before{
-    background-color: #777;
-    content: "";
-    position: absolute;
-    height: 1px;
-    top: 40px;
-    width: 130px;   
-}
-.bg .masterlogin h3:after
-{ 
-    background-image: -webkit-gradient(linear, left top, right top, from(#777), to(#fff));
-    background-image: -webkit-linear-gradient(left, #777, #fff);
-    background-image: -moz-linear-gradient(left, #777, #fff);
-    background-image: -ms-linear-gradient(left, #777, #fff);
-    background-image: -o-linear-gradient(left, #777, #fff);
-    background-image: linear-gradient(left, #777, #fff);      
-    right: 0;
-}
-
-.bg .masterlogin h3:before
-{
-    background-image: -webkit-gradient(linear, right top, left top, from(#777), to(#fff));
-    background-image: -webkit-linear-gradient(right, #777, #fff);
-    background-image: -moz-linear-gradient(right, #777, #fff);
-    background-image: -ms-linear-gradient(right, #777, #fff);
-    background-image: -o-linear-gradient(right, #777, #fff);
-    background-image: linear-gradient(right, #777, #fff);
-    left: 0;
-}
-
-.bg .masterlogin .input-group{	
-	margin:20px 30px;
-}
-.bg .masterlogin .btn-login{
-	width:280px;
-}
 
 /*修改美食信息页面*/
 /* 文件上传*/

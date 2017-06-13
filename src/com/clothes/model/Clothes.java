@@ -15,7 +15,9 @@ public class Clothes implements java.io.Serializable {
 	private String clothestype;
 	private Double unitprice;
 	private String filepath;
+	private Set carts = new HashSet(0);
 	private Set orders = new HashSet(0);
+	private Set carts_1 = new HashSet(0);
 	private Set orders_1 = new HashSet(0);
 
 	// Constructors
@@ -31,11 +33,13 @@ public class Clothes implements java.io.Serializable {
 
 	/** full constructor */
 	public Clothes(String clothestype, Double unitprice, String filepath,
-			Set orders, Set orders_1) {
+			Set carts, Set orders, Set carts_1, Set orders_1) {
 		this.clothestype = clothestype;
 		this.unitprice = unitprice;
 		this.filepath = filepath;
+		this.carts = carts;
 		this.orders = orders;
+		this.carts_1 = carts_1;
 		this.orders_1 = orders_1;
 	}
 
@@ -73,12 +77,28 @@ public class Clothes implements java.io.Serializable {
 		this.filepath = filepath;
 	}
 
+	public Set getCarts() {
+		return this.carts;
+	}
+
+	public void setCarts(Set carts) {
+		this.carts = carts;
+	}
+
 	public Set getOrders() {
 		return this.orders;
 	}
 
 	public void setOrders(Set orders) {
 		this.orders = orders;
+	}
+
+	public Set getCarts_1() {
+		return this.carts_1;
+	}
+
+	public void setCarts_1(Set carts_1) {
+		this.carts_1 = carts_1;
 	}
 
 	public Set getOrders_1() {

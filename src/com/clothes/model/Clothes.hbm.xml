@@ -21,11 +21,23 @@
         <property name="filepath" type="java.lang.String">
             <column name="filepath" length="80" />
         </property>
+        <set name="carts" inverse="true">
+            <key>
+                <column name="clothesid" not-null="true" />
+            </key>
+            <one-to-many class="com.clothes.model.Cart" />
+        </set>
         <set name="orders" inverse="true">
             <key>
                 <column name="clothesid" not-null="true" />
             </key>
             <one-to-many class="com.clothes.model.Order" />
+        </set>
+        <set name="carts_1" inverse="true">
+            <key>
+                <column name="clothesid" not-null="true" />
+            </key>
+            <one-to-many class="com.clothes.model.Cart" />
         </set>
         <set name="orders_1" inverse="true">
             <key>

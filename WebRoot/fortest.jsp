@@ -8,7 +8,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html xmlns="http://www.w3.org/1999/xhtml"> 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
-<title>¼ì²â´óĞ´Ëø¶¨¼ü</title>
+<title>æ£€æµ‹å¤§å†™é”å®šé”®</title>
 <style type="text/css">
 <!--
 *{margin:0;padding:0;}
@@ -24,9 +24,9 @@ span{margin:0 0.5em;font-size:85.7%;}
 </head> 
 
 <body>
-<h1>¼ì²â´óĞ´Ëø¶¨¼ü&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h1>
+<h1>æ£€æµ‹å¤§å†™é”å®šé”®&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h1>
 <form action="#" method="post">
-<p><label for="password">ÃÜÂë£º</label><input type="password" id="password" name="password" /><span style="display:none;">´óĞ´Ëø¶¨¼ü±»°´ÏÂ£¬Çë×¢Òâ´óĞ¡Ğ´</span></p>
+<p><label for="password">å¯†ç ï¼š</label><input type="password" id="password" name="password" /><span style="display:none;">å¤§å†™é”å®šé”®è¢«æŒ‰ä¸‹ï¼Œè¯·æ³¨æ„å¤§å°å†™</span></p>
 </form>
 <script type="text/javascript">
 //<![CDATA[
@@ -34,11 +34,11 @@ function  detectCapsLock(event){
     var e = event||window.event;
     var o = e.target||e.srcElement;
     var oTip = o.nextSibling;
-    var keyCode  =  e.keyCode||e.which; // °´¼üµÄkeyCode 
-    var isShift  =  e.shiftKey ||(keyCode  ==   16 ) || false ; // shift¼üÊÇ·ñ°´×¡
+    var keyCode  =  e.keyCode||e.which; // æŒ‰é”®çš„keyCode 
+    var isShift  =  e.shiftKey ||(keyCode  ==   16 ) || false ; // shifté”®æ˜¯å¦æŒ‰ä½
      if (
-     ((keyCode >=   65   &&  keyCode  <=   90 )  &&   !isShift) // Caps Lock ´ò¿ª£¬ÇÒÃ»ÓĞ°´×¡shift¼ü 
-     || ((keyCode >=   97   &&  keyCode  <=   122 )  &&  isShift)// Caps Lock ´ò¿ª£¬ÇÒ°´×¡shift¼ü
+     ((keyCode >=   65   &&  keyCode  <=   90 )  &&   !isShift) // Caps Lock æ‰“å¼€ï¼Œä¸”æ²¡æœ‰æŒ‰ä½shifté”® 
+     || ((keyCode >=   97   &&  keyCode  <=   122 )  &&  isShift)// Caps Lock æ‰“å¼€ï¼Œä¸”æŒ‰ä½shifté”®
      ){oTip.style.display = '';}
      else{oTip.style.display  =  'none';} 
 }

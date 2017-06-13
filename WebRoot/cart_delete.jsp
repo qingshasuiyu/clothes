@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="GB18030"%>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -9,21 +9,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>老子跳起来给你几十刀</title>
+    <title>鍒犻櫎鎴愬姛</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">    
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
-	<meta http-equiv="Refresh" content="2;url=clothes/clothes_showClothes">
-	<!--
-	<link rel="stylesheet" type="text/css" href="styles.css">
-	-->
+	<meta http-equiv="Refresh" content="1;url=cart/cart_showCart?customer.name=${customer.name}">
+	<link rel="stylesheet" type="text/css" href="<%=basePath%>css/main.css">
 
   </head>
   
   <body>
-      <img src="img/dao.jpg" alt="我跳起来就是几百刀">
+    鍒犻櫎鎴愬姛
   </body>
 </html>

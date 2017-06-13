@@ -19,6 +19,18 @@
         <property name="password" type="java.lang.String">
             <column name="password" length="16" not-null="true" />
         </property>
+        <set name="carts" inverse="true">
+            <key>
+                <column name="customer" />
+            </key>
+            <one-to-many class="com.clothes.model.Cart" />
+        </set>
+        <set name="carts_1" inverse="true">
+            <key>
+                <column name="customer" />
+            </key>
+            <one-to-many class="com.clothes.model.Cart" />
+        </set>
         <set name="orders" inverse="true">
             <key>
                 <column name="customer" />

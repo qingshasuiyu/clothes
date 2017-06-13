@@ -29,7 +29,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link rel="shortcut icon" href="<%=basePath%>img/logo.png">
 	
 	<style type="text/css">
-	div{
+	div2{
 	text-align:center;
 	-moz-border-radius: 15px;
     -webkit-border-radius: 15px;
@@ -48,8 +48,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-  
-  <div>
+  <div class="div2">
    <p>服装名称：<c:out value="${clothes.clothestype}"></c:out></p>
    <p>单价：<c:out value="${clothes.unitprice}"></c:out></p>
    <p>衣服图片展示：</p>
