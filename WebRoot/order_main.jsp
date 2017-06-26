@@ -49,7 +49,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	                         <thead>
 	                           <tr>
 	                                  <th>序号</th>  
-							          <th>订单号</th>
+							          <th>类型</th>
 							          <th>服装</th>
 							          <th>单价</th> 
 							          <th>数目</th>  
@@ -60,8 +60,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	                              <s:iterator value="orderList" status="status">
 	                                  <tr>
 	                                      <td><s:property value="#status.index+1"></s:property></td>
-	                                      <td><s:a href="order/order_showDetail?order.orderid=%{orderid}">
-		                                      <s:property value="orderid"></s:property></s:a></td>
+	                                      <td><s:property value="clothes.type"></s:property></td>
 	                                      <td class="center"><s:property value="clothes.clothestype"></s:property></td>
 	                                      <td class="center"><s:property value="clothes.unitprice"></s:property></td>
 	                                      <td class="center"><s:property value="clothesnum"></s:property></td>

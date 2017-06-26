@@ -34,13 +34,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	       margin-left:100px;
 	    }
 	    #div2{
-	       margin-left:100px;
+	       
 	    }
 	    #div2 h3{
-	       margin-left:100px;
+	       margin-left:200px;
 	    }
-	    #div3{
-	       text-align:center;
+	    #cart{
+	       width:50px;
+	       display:block;
+	       position:fixed;
+	       right:160px;
+	       top:20%;
 	    }
 	    table,thead{
 	       width: 100%;
@@ -61,18 +65,50 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	       color:black;
 	       font-size:large;
 	    }
-	   
 	    #time{
 	       dispaly:block;
 	       position:fixed;
 	       left:80%;
 	       top:90%;
 	    }
-	    
+	   .div_panel{
+	       min-height: 200px;
+	    }
+	   .allMoney{
+	       position: absolute;
+	       right: 0px;
+	    }
+	   #div1 ul li p{50%;text-align: right;flex: 1;}
+	   #div1{
+	       width:50px;
+	       border:1px solid #ddd;
+	       position:fixed;
+	}
 	   
 	</style>
 	
-	
+	<script type="text/javascript">
+        $(function(){
+
+           $("#cart").hide(); //先让div隐藏
+
+            $("#span1").click(function(){
+
+                  $("#cart").fadeIn("slow");//淡入淡出效果 显示div
+
+            });
+
+            $("#span2").click(function(){
+
+                     $("#cart").fadeOut("slow");//淡入淡出效果 隐藏div
+
+            })
+            
+            
+
+        });
+    
+    </script>
   </head>
   
   <body>
@@ -110,13 +146,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <input class="search-field form-control input-sm" title="关键词" name="keywords" placeholder="输入关键词...">
                 <button class="btn btn-info btn-sm" type="submit">搜  索</button>
               </div> 
-     </div>   
-     </s:form>      
+     </div>         
       <c:choose>
 	        <c:when test="${master.name !=null}">
 	             
 	             	<div calss="div2">	        
-		            <h3><div class="add"><a href="add.jsp">上架服装</a></div></h3>	        
+		            <h2><div class="add"><a href="add.jsp">上架服装</a></div></h2>	        
 	                </div>
 	             
 	             <s:iterator value="clothesList" status="status">
@@ -144,15 +179,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	      <c:otherwise>
 	      <div class="div2">
 	       <h3>猜你喜欢</h3>
-	        <div class="div3">
-	         <a href="clothes/clothes_showchildclothes">童装</a>
-	         <a href="clothes/clothes_showmaleclothes">男装</a>
-	         <a href="clothes/clothes_showfemaleclothes">女装</a>
-	        </div>
 	      </div>
 	       <s:if test="#session.customer.name !=null">
-	       
-  <div id="url_info">
+  <div id=cart>
+       
+               <div align="right" style="background-color:#CDCDCD;"><span id="span2" style="cursor:pointer">关闭</span>
+               </div>
+        <div id="div1">
+	     '_>'
+        </div>
+  </div>
+  <div id=url_info>
             <span style="cursor:pointer" id="span1"><img src="img/logo.png"></span><a href="cart/cart_showCart?customer.name=${customer.name}">我的购物车</a>
   </div>     
 </s:if>
@@ -186,7 +223,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	      </c:otherwise>  
 	      </c:choose>   
 	    
-	   
+	    </s:form>  
 	   <div id="time">
     <script>
         document.getElementById('time').innerHTML = new Date().toLocaleString()

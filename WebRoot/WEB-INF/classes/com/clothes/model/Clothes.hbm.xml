@@ -10,8 +10,15 @@
             <column name="clothesid" />
             <generator class="increment"></generator>
         </id>
+        <property name="type" type="java.lang.String">
+            <column name="type" length="40">
+                <comment>男装/女装/童装</comment>
+            </column>
+        </property>
         <property name="clothestype" type="java.lang.String">
-            <column name="clothestype" length="40" not-null="true" />
+            <column name="clothestype" length="40" not-null="true">
+                <comment>名称</comment>
+            </column>
         </property>
         <property name="unitprice" type="java.lang.Double">
             <column name="unitprice" precision="22" scale="0">

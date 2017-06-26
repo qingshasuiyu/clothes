@@ -44,11 +44,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		           </div>
 		           <div class="panel-body">
 				       <div class="form-group">
-			                <label class="control-label col-md-3">服装类型</label>
+			                <label class="control-label col-md-3">服装名称</label>
 			                <div class="col-md-4">
                               <input type="text" name="clothes.clothestype" value="<s:property value='clothes.clothestype'/>" class="form-control input-sm" required>
                            </div>
-			           </div>  
+			           </div>
+			           <div class="form-group">
+			                <label class="control-label col-md-3">服装类型</label>
+			                <div class="col-md-4">
+                              <select name="clothes.type">
+                                   <option value="男装">男装</option>
+                                   <option value="女装">女装</option>
+                                   <option value="童装">童装</option>
+                              </select>
+                            </div>
+       			       </div>      
 			           <div class="form-group">
 			                <label class="control-label col-md-3">服装单价</label>
 			                <div class="col-md-2">

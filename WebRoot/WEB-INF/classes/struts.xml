@@ -42,6 +42,9 @@
                     <result name="edit_view">/edit.jsp</result>
                     <result name="delete_message">/delete_message.jsp</result>
                     <result name="edit_message">/edit_message.jsp</result>
+                    <result name="child_view">/child.jsp</result>
+                    <result name="female_view">/female.jsp</result>
+                    <result name="male_view">/male.jsp</result>
              </action>
      
      </package>

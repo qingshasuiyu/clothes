@@ -67,6 +67,21 @@ public class ClothesDao {
     	System.out.println(hql);
     	return (ArrayList<Clothes>) clothesList;
     }
+    /*根据查询条件查询*/
+    public ArrayList<Clothes> QueryClothes(String type){
+    	List clothesList;
+    	Session s=factory.getCurrentSession();
+    	String hql="From Clothes clothes where 1=1";
+    	System.out.println(hql);
+    	if(!type.equals("")){
+    		hql = hql + " and clothes.type like '%"+type+"%'";
+    	}
+    	Query q=s.createQuery(hql);
+    	clothesList = q.list();
+    	
+    	System.out.println(hql);
+    	return (ArrayList<Clothes>) clothesList;
+    }
     /*根据主键获取对象*/
     public Clothes GetClothesById(Integer clothesid) {
         Session s = factory.getCurrentSession();

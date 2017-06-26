@@ -11,7 +11,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>店铺首页</title>
+    <title>男装</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -34,14 +34,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	       margin-left:100px;
 	    }
 	    #div2{
-	       margin-left:100px;
+	       margin-left:200px;
 	    }
 	    #div2 h3{
-	       margin-left:100px;
+	       
 	    }
-	    #div3{
-	       text-align:center;
-	    }
+	   
 	    table,thead{
 	       width: 100%;
 	    }
@@ -101,56 +99,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	             <a href="logout.jsp">退出登录</a>
 	       </c:otherwise>
 	  </c:choose>
+	     <a href="loading.jsp">返回首页</a>
       </div>
   </header>
-  <main>
-     <s:form action="clothes/clothes_queryClothes" method="post">
-     <div class="form-inline search-box">
-             <div class="form-group pull-right mr200">
-                <input class="search-field form-control input-sm" title="关键词" name="keywords" placeholder="输入关键词...">
-                <button class="btn btn-info btn-sm" type="submit">搜  索</button>
-              </div> 
-     </div>   
-     </s:form>      
-      <c:choose>
-	        <c:when test="${master.name !=null}">
-	             
-	             	<div calss="div2">	        
-		            <h3><div class="add"><a href="add.jsp">上架服装</a></div></h3>	        
-	                </div>
-	             
-	             <s:iterator value="clothesList" status="status">
-	          <li>
-	             <img src="<%=basePath%><s:property value='filepath'/>" width="150px" height="150px">
-	             <p>
-	                <a href="clothes/clothes_showDetail?clothes.clothesid=<s:property value='clothesid'/>">
-	                  <s:property value="clothestype"/>
-	                </a>
-	                <span class="price"> &yen;<s:property value="unitprice"/></span>
-	                <a href="clothes/clothes_showEdit?clothes.clothesid=<s:property 
-	                  value='clothesid'/>">
-	                  <i class="fa fa-pencil"></i> 
-	                </a>
-	                &nbsp;&nbsp;<a href="clothes/clothes_deleteClothes?clothes.clothesid=<s:property 
-	                  value='clothesid'/>">
-	                  <i class="fa fa-trash"></i> 
-	                </a>
-	             </p>
-	          </li>
-	        </s:iterator> 
-            
-	      </c:when>       
-	      
-	      <c:otherwise>
+  <main>     
 	      <div class="div2">
-	       <h3>猜你喜欢</h3>
-	        <div class="div3">
-	         <a href="clothes/clothes_showchildclothes">童装</a>
-	         <a href="clothes/clothes_showmaleclothes">男装</a>
-	         <a href="clothes/clothes_showfemaleclothes">女装</a>
-	        </div>
+	       <h3>男装</h3>
 	      </div>
-	       <s:if test="#session.customer.name !=null">
+<s:if test="#session.customer.name !=null">
 	       
   <div id="url_info">
             <span style="cursor:pointer" id="span1"><img src="img/logo.png"></span><a href="cart/cart_showCart?customer.name=${customer.name}">我的购物车</a>
@@ -183,8 +139,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	          </li>
 	          
 	        </s:iterator>
-	      </c:otherwise>  
-	      </c:choose>   
+	      
 	    
 	   
 	   <div id="time">

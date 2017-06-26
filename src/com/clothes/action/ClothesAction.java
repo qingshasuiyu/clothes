@@ -123,6 +123,21 @@ public class ClothesAction {
 		clothesList=clothesDAO.QueryAllClothes();
 		return "show_view";
 	}
+	/*显示童装*/
+	public String showchildclothes(){
+		clothesList=clothesDAO.QueryClothes("童装");
+		return "child_view";
+	}
+	/*显示女装*/
+	public String showfemaleclothes(){
+		clothesList=clothesDAO.QueryClothes("女装");
+		return "female_view";
+	}
+	/*显示男装*/
+	public String showmaleclothes(){
+		clothesList=clothesDAO.QueryClothes("男装");
+		return "male_view";
+	}
 	//查询衣服
 	public String queryClothes() throws Exception{
 		System.out.println(keywords);
